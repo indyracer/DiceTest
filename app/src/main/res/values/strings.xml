@@ -2,6 +2,9 @@
     <string name="app_name">Dice Test</string>
     <string name="die_1_label_text">Die 1</string>
     <string name="die_2_label_text">Die 2</string>
-    <string name="die_starting_value">1</string>
+    <string name="die_starting_value">0</string>
     <string name="roll_die_button">Roll Dice</string>
+    <string name="point_label">Point:</string>
+    <string name="roll_label">Roll:</string>
+    <string name="roll_value_come_out">Come Out Roll</string>
 </resources>
