@@ -56,11 +56,11 @@ public class MainActivity extends AppCompatActivity {
             startNewGame = savedInstanceState.getBoolean("gameWon");
             rollDieEnabled = savedInstanceState.getBoolean("rollDieEnabled");
 
-            mShowDie1.setText(Integer.toString(mDieResult1));
-            mShowDie2.setText(Integer.toString((mDieResult2)));
+            mShowDie1.setText(String.valueOf(mDieResult1));
+            mShowDie2.setText(String.valueOf((mDieResult2)));
 
-            mPointValue.setText(Integer.toString(mPoint));
-            mRollValue.setText(Integer.toString(mDieTotal));
+            mPointValue.setText(String.valueOf(mPoint));
+            mRollValue.setText(String.valueOf(mDieTotal));
             mPhaseValue.setText(mPhase);
             rollDice.setEnabled(rollDieEnabled);
 
@@ -87,22 +87,18 @@ public class MainActivity extends AppCompatActivity {
             mDieResult2 = 1;
         }
 
-        mShowDie1.setText(Integer.toString(mDieResult1));
-        mShowDie2.setText(Integer.toString(mDieResult2));
+        mShowDie1.setText(String.valueOf(mDieResult1));
+        mShowDie2.setText(String.valueOf(mDieResult2));
 
         //show roll value
         mDieTotal = mDieResult1 + mDieResult2;
-        mRollValue.setText(Integer.toString(mDieTotal));
+        mRollValue.setText(String.valueOf(mDieTotal));
 
         //set point and new game button visibility
         //mPhase = mPhaseValue.getText().toString();
 
         //
         if (mPhase.equals("Come Out Roll")) {
-            //mPoint = mDieTotal;  move this to default statement
-            //mPointValue.setText(Integer.toString(mDieTotal));
-            //Need to rethink this...need to check for craps and 7, any rolls that would not set the point
-            //switch statement??
             switch (mDieTotal) {
                 case 7:
                     mPhaseValue.setText(R.string.come_out_7);  //sets message to player
@@ -143,7 +139,9 @@ public class MainActivity extends AppCompatActivity {
                     mPhaseValue.setText(R.string.phase_point);
                     mPhase = mPhaseValue.getText().toString(); //sets value for outState
                     mPoint = mDieTotal;
-                    mPointValue.setText(Integer.toString(mPoint));
+                    mPointValue.setText(String.valueOf(mPoint));
+                    startNewGame = false;
+                    newGame.setVisibility(View.INVISIBLE);
                     break;
             }
 
@@ -157,14 +155,20 @@ public class MainActivity extends AppCompatActivity {
                 rollDieEnabled = false;
                 rollDice.setEnabled(rollDieEnabled);
             }
-            if(mDieTotal == 7){
+            else if(mDieTotal == 7){
                 mPhaseValue.setText(R.string.seven_out_lose);
                 mPhase = mPhaseValue.getText().toString();
                 newGame.setVisibility(View.VISIBLE);
                 startNewGame = true;
                 rollDieEnabled = false;
                 rollDice.setEnabled(rollDieEnabled);
-
+            } else {
+                mPhaseValue.setText(R.string.phase_point);
+                mPhase = mPhaseValue.getText().toString();
+                newGame.setVisibility(View.INVISIBLE);
+                startNewGame = false;
+                rollDieEnabled = true;
+                rollDice.setEnabled(rollDieEnabled);
             }
         }
 
@@ -189,13 +193,13 @@ public class MainActivity extends AppCompatActivity {
     public void newGame(View view) {
         //reset all settings to begin a new game
         mDieTotal = 0;
-        mRollValue.setText(Integer.toString(mDieTotal));
+        mRollValue.setText(String.valueOf(mDieTotal));
         mDieResult1 = 0;
-        mShowDie1.setText(Integer.toString(mDieResult1));
+        mShowDie1.setText(String.valueOf(mDieResult1));
         mDieResult2 = 0;
-        mShowDie2.setText(Integer.toString(mDieResult2));
+        mShowDie2.setText(String.valueOf(mDieResult2));
         mPoint = 0;
-        mPointValue.setText(Integer.toString(mPoint));
+        mPointValue.setText(String.valueOf(mPoint));
         mPhaseValue.setText(R.string.roll_value_come_out);
         mPhase = mPhaseValue.getText().toString();
         newGame.setVisibility(View.INVISIBLE);
