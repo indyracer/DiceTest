@@ -10,4 +10,11 @@
     <string name="new_game_button">New Game</string>
     <string name="phase_point">Point</string>
     <string name="phase_label">Phase:</string>
+    <string name="come_out_7">7 Natural, Win!</string>
+    <string name="craps_2_lose">Craps 2, Lose</string>
+    <string name="craps_3_lose">Craps 3, Lose</string>
+    <string name="craps_12_lose">Craps 12, Lose</string>
+    <string name="win_11">Yo Eleven, Win!!!</string>
+    <string name="point_winner">Winner!</string>
+    <string name="seven_out_lose">7 out..Lose!</string>
 </resources>
