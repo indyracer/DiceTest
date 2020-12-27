@@ -7,4 +7,7 @@
     <string name="point_label">Point:</string>
     <string name="roll_label">Roll:</string>
     <string name="roll_value_come_out">Come Out Roll</string>
+    <string name="new_game_button">New Game</string>
+    <string name="phase_point">Point</string>
+    <string name="phase_label">Phase:</string>
 </resources>
